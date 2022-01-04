@@ -1,7 +1,7 @@
 # tos-alert
 A discord bot providing notifications of player activity on a minecraft server.
 
-#Setup
+Setup
 
 By default the app does not launch and will crash with the error ``` UnchangedDefaults ```, you must input your values to the configuration file as described below:
 ```
