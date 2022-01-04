@@ -27,18 +27,26 @@ async def on_ready():
     await botChannel.send("starting")
     print("starting")
     sentLog=[]
+    query = server.query()
+    playerList=query.players.names
+    print(playerList)
+    
     while True:
         query = server.query()
-        pl=query.players.names
-        for op in pl:
-            if op in poil:
-                if op not in sentLog:
-                    sentLog.append(op)
-                    await botChannel.send(op+" is online")
-        for poi in sentLog:
-            if poi not in pl:
-                await botChannel.send(op+" is offline")
-                sentLog.remove(poi)
+        playerList=query.players.names
+        print(playerList)
+        for onlinePlayer in playerList:
+            print('op: '+onlinePlayer)
+            if onlinePlayer in poil:
+                print(onlinePlayer+"is in poil: "+str(poil))
+                if onlinePlayer not in sentLog:
+                    print(onlinePlayer+"not in connection log: "+str(sentLog))
+                    sentLog.append(onlinePlayer)
+                    await botChannel.send(onlinePlayer+" logged on")
+        for target in sentLog:
+            if target not in playerList:
+                await botChannel.send(target+" logged off")
+                sentLog.remove(target)
         await asyncio.sleep(rate)
 
 if __name__ == "__main__":
