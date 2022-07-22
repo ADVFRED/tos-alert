@@ -1,4 +1,7 @@
 # tos-alert
+
+NOTICE: This is really poorly written and doesn't implement any asynchronous code at all, it is the absolute bare minimum of functionality. I thankfully no longer need to deal with the situation that prompted the creation of this app and will be leaving it unmaintained. 
+
 A discord bot providing notifications of player activity on a minecraft server.
 
 Setup
